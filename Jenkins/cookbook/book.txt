@@ -1,1 +1,34 @@
 https://go.cloudbees.com/docs/cloudbees-documentation/cookbook/book.html
+
+
+Notes from the link above:
+
+- Hardware Recommendations:
+     - Configiration, build histories and plugin are in the $JENKINS_HOME
+     - RAM require for Jenkins Master canrange from 200 MP for small installaiton to 70+GB for single massive master.
+     - each node connection will take 2-3 threads, which equals about 2 MP. YOu will also need CPU  overhead for Jenkins if there are lots of users who is going to use the jenkins by UI.
+      - is bad practie to have executors on master.
+    
+    
+    - Agents should be generic for all builds rather than customized for a specific job or a set of jobs. The more generic the build agents, the more easily they are interchanged, which in turn allows for a better use of resources and a reduced impact on productivity if some agents suffer an outage. 
+    
+
+- Archiyecture of Scale:
+
+     - Vertical growth is when a master’s load is increased by having more configured jobs or orchestrating more frequent builds. This may also mean that more teams are depending on that one master.
+    
+    - Horizontal growth is the creation of additional masters within an organization to accommodate new teams or projects, rather than adding these things to an existing single master.
+    
+    There are ptfalls associate with each of this, which require carefull planning, here are few things that needs to consider:
+    - enough nodes
+    - Enough resources to manage more Jenkins masters, since Jenkins masters require manual configurations, update plug-ins, security updates and rules. Downed masters will require manual restart or any killed job because of the outage. 
+    -  Consider segregating the most vital projects to separate masters to minimize the impact of a single downed master. Also consider converting any mission-critical project pipelines to Pipeline jobs, which have the ability to survive a master-agent connection interruptions.
+    
+    - ** The more jobs a master has configures, the longer it takes to load Jenkis after an upgrade or a crash. The use of folder and views to to organize jobs can limit the number of that need to be rendered on start up.
+    
+    
+- Distributed Builds Architecture:
+    -- ** Executing jobs on the master’s executors introduces a "security" issue: the "jenkins" user that Jenkins uses to run the jobs would have full permissions on all Jenkins resources on the master. This means that, with a simple script, a malicious user can have direct access to private information whose integrity and privacy could not be, thus, guaranteed.  
+    
+    
+    
