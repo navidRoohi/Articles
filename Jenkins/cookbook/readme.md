@@ -8,6 +8,6 @@ sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
 sudo yum install -y jenkins
 sudo systemctl enable jenkins
 sudo systemctl start jenkins
-# "go to http://publicIP:8080"
-# "follow the UI, follow the var/lib/jenkins/secrets/initialAdminPassword to find the password"
+go to http://publicIP:8080
+follow the UI, follow the var/lib/jenkins/secrets/initialAdminPassword to find the password
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
