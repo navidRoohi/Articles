@@ -1,0 +1,11 @@
+reference : https://www.devopslibrary.com/lessons/ccjpe-api
+
+http://jenkinsMasterURL/api
+
+Jenkins REST API provides three different ways to interact with it. XML, JSON, or even directly access Python objects.
+
+
+curl -u username:apiToken "http://jenkinsMasterURL/api/json?pretty=true"
+curl -u admin:115edjnkje639f42kjnskdjncksjdnc "http://ip:8080/api/json?pretty=true"
+
+
