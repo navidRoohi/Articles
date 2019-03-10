@@ -1,4 +1,3 @@
-reference : https://www.devopslibrary.com/lessons/ccjpe-api
 
 http://jenkinsMasterURL/api
 Jenkins REST API provides three different ways to interact with it. XML, JSON, or even directly access Python objects.
@@ -22,4 +21,16 @@ curl -u admin:115edjnkje639f42kjnskdjncksjdnc "http://ip:8080/api/json?pretty=tr
 curl -X POST -u user:api_toekn  http://jenkins_url/job/myJob/build
 
 
+// diff between   /build   and   /buildWithParameters   is :  
+/build is the UI url and will take you to a parameters page if parameters have been defined.
+/buildWithParameters is specifically for triggering a build with parameters remotely and you are supposed to provide all parameters spontaneously.
 
+The two both works for Parameterize job:
+- ONE parameter:
+curl -X POST -u user:token  http://jenkins_URL/job/jobTwo/build --data-urlencode json='{"parameter": [{"name":"NAME", "value":"heloooooo2"}]}'
+curl -X POST -u user:token  http://jenkins_URL/job/jonTwo/buildWithParameters?PARAM1=param1_value
+
+Two parameters:
+curl -X POST -u user:token  http://jenkins_URL/job/jobTwo/build --data-urlencode json='{"parameter": [{"name":"NAME", "value":"heloooooo2"},{"name":"ID", "value":"100"}]}'
+curl -X POST -u user:token  http://jenkins_URL/job/jonTwo/buildWithParameters?"PARAM1=param1_value&PARAM2=param2_value"
+// TODO:  Note: i was not able to use the buildWithParameters with JSON, so I m not really sure, how that is posiible.
