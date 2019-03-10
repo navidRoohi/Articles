@@ -2,6 +2,10 @@
 * https://wiki.jenkins.io/display/JENKINS/Remote+access+API
 **/
 
+Remote API can be used to do things like these:
+ - retrieve information from Jenkins for programmatic consumption.
+ - trigger a new build
+ - create/copy jobs
 
 
 http://jenkinsMasterURL/api
