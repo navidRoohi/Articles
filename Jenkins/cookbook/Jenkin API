@@ -1,11 +1,25 @@
 reference : https://www.devopslibrary.com/lessons/ccjpe-api
 
 http://jenkinsMasterURL/api
-
 Jenkins REST API provides three different ways to interact with it. XML, JSON, or even directly access Python objects.
+
+
+You can get the API TOEKN from  http://jenkinsURL/me/configure
+API tokens offer a way to make authenticated CLI or REST API calls.
+The username associated with each token is your Jenkins username.
+
+Some good practices for keeping your API tokens secure are:
+ - Use a different token for each application so that if an application is compromised you can revoke its token individually.
+ - Regenerate the tokens every 6 months (depending on your context). We display an indicator concerning the age of the token.
+ - Protect it like your password, as it allows other people to access Jenkins as you.
 
 
 curl -u username:apiToken "http://jenkinsMasterURL/api/json?pretty=true"
 curl -u admin:115edjnkje639f42kjnskdjncksjdnc "http://ip:8080/api/json?pretty=true"
+
+
+// this launch a new buil for myJob. 
+curl -X POST -u user:api_toekn  http://jenkins_url/job/myJob/build
+
 
 
