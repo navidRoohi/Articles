@@ -1,3 +1,8 @@
+/**
+* https://wiki.jenkins.io/display/JENKINS/Remote+access+API
+**/
+
+
 
 http://jenkinsMasterURL/api
 Jenkins REST API provides three different ways to interact with it. XML, JSON, or even directly access Python objects.
