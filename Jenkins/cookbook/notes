@@ -20,4 +20,45 @@ mouth
 
 
 Jenkins Changelogs
-These track the changes between builds in the Jenkins server itself.
+These track the changes between builds in the Jenkins server itself. :
+
+pwd
+/var/lib/jenkins/jobs/jobThree
+tree
+.
+├── builds
+│   ├── 1
+│   │   ├── build.xml
+│   │   └── log
+│   ├── 2
+│   │   ├── build.xml
+│   │   ├── changelog.xml
+│   │   └── log
+│   ├── 3
+│   │   ├── build.xml
+│   │   ├── changelog.xml
+│   │   └── log
+│   ├── lastFailedBuild -> 1
+│   ├── lastStableBuild -> 3
+│   ├── lastSuccessfulBuild -> 3
+│   ├── lastUnstableBuild -> -1
+│   ├── lastUnsuccessfulBuild -> 1
+│   └── legacyIds
+├── config.xml
+├── lastStable -> builds/lastStableBuild
+├── lastSuccessful -> builds/lastSuccessfulBuild
+└── nextBuildNumber
+10 directories, 12 files
+
+cat builds/2/changelog.xml    # no changes here
+cat builds/3/changelog.xml    # there was a commit here
+commit 51a9ee7aef2csca4863ee6d72a6csb12de8286302a
+tree 40e4924089efdafsb144b51edf29b017643ec1ae4
+parent ec47c275a4db1c448sc0cecf4f70867b44b3c2e80
+author .... <......@users.noreply.github.com> 2019-03-16 11:39:09 -0700
+committer GitHub <noreply@github.com> 2019-03-16 11:39:09 -0700
+    Update notes
+:100644 100644 80cb931sae06f05 58f7f5902s3a718cc M      Jenkins/cookbook/notes
+
+
+----------------------------
